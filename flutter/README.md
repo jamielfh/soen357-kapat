@@ -1,4 +1,4 @@
-# soen357_project
+# frontend
 
 A new Flutter project.
 
