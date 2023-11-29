@@ -14,7 +14,7 @@ Frontend application for KaPat Financial Planning App using Flutter.
 - Add sdk path for dart to android studios
 - Create Virtual Device. Virtual Device Manager --> Create device
 
-3. Clone the Comcrop repository from Github
+3. Clone the KaPat repository from Github
 
 4. For Windows Computers:
 - Turn on developer mode for window computers (Settings->Privacy & Security -> Developer Mode (turn on))
@@ -48,7 +48,7 @@ frontend/
 ``` 
 ANDROID STUDIO
 # Open project
-Open --> [Path to Comcrop/frontend]
+Open --> [Path to KaPat/flutter]
 
 # Activate virtual device
 Start Emulator
