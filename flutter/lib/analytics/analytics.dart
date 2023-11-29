@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AnalyticsPage extends StatefulWidget {
   const AnalyticsPage({super.key});
@@ -19,8 +20,18 @@ class _AnalyticsPageState extends State<AnalyticsPage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
-    return const Scaffold(
-      body: Text("Analytics Page")
+    return Scaffold(
+        appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: Text(
+                "Analytics",
+                style: TextStyle(
+                  fontSize: 24,
+                  fontFamily: GoogleFonts.openSans().fontFamily,
+                  fontWeight: FontWeight.bold),
+            ),
+        ),
+        body: Text("Analytics Page")
     );
   }
 }

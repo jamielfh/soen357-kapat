@@ -35,7 +35,6 @@ class _HomePageState extends State<HomePage> {
                   fontFamily: GoogleFonts.openSans().fontFamily,
                   fontWeight: FontWeight.bold),
             ),
-        centerTitle: true,
         actions: <Widget>[
           IconButton(
                 icon: const Icon(

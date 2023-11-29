@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class GoalSettingPage extends StatefulWidget {
   const GoalSettingPage({super.key});
@@ -19,7 +20,17 @@ class _GoalSettingPageState extends State<GoalSettingPage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
-    return const Scaffold(
+    return Scaffold(
+        appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: Text(
+                "Goals",
+                style: TextStyle(
+                  fontSize: 24,
+                  fontFamily: GoogleFonts.openSans().fontFamily,
+                  fontWeight: FontWeight.bold),
+            ),
+        ),
       body: Text("Goal Setting Page")
     );
   }
