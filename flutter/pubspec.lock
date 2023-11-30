@@ -279,6 +279,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "23.2.6"
+  syncfusion_flutter_gauges:
+    dependency: "direct main"
+    description:
+      path: "flutter-widgets/packages/syncfusion_flutter_gauges"
+      relative: true
+    source: path
+    version: "23.1.36"
   term_glyph:
     dependency: transitive
     description:

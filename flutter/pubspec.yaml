@@ -38,6 +38,8 @@ dependencies:
   google_fonts: ^6.1.0
   syncfusion_flutter_charts:
     path: flutter-widgets/packages/syncfusion_flutter_charts
+  syncfusion_flutter_gauges:
+    path: flutter-widgets/packages/syncfusion_flutter_gauges
 
 dev_dependencies:
   flutter_test:

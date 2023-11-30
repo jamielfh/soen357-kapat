@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
+import 'package:syncfusion_flutter_gauges/gauges.dart';
 
 class BudgetPage extends StatefulWidget {
   const BudgetPage({super.key});
@@ -35,34 +36,79 @@ class _BudgetPageState extends State<BudgetPage> {
     _tooltip = TooltipBehavior(enable: true);
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Syncfusion Flutter chart'),
-      ),
-      body: Stack(
-        children: [
-          SfCircularChart(
-            tooltipBehavior: _tooltip,
-            series: <CircularSeries<dynamic, dynamic>>[
-              DoughnutSeries<_ChartData, String>(
-                dataSource: data,
-                xValueMapper: (_ChartData data, _) => data.x,
-                yValueMapper: (_ChartData data, _) => data.y,
-                innerRadius: '80%',
-                name: 'Gold',
-              ),
-            ],
-          ),
-          Center(
-            child: Text(
-              'xxxx spent this month, 80% of budget spent',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+@override
+Widget build(BuildContext context) {
+  return Scaffold(
+    appBar: AppBar(
+      title: const Text('Syncfusion Flutter chart'),
+    ),
+    body: Column(
+      children: [
+        ElevatedButton(
+          onPressed: () {
+            // Add your logic for the button's onPressed event here
+          },
+          child: const Text('Add New Expense',style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+        ),
+        Container(
+          padding: const EdgeInsets.all(16),
+          color: Colors.green,
+          child: Text(
+            'Great Job! You are on track with keeping to your budget',
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
             ),
+          ),
+        ),
+        Container(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+              children:[
+                Text(
+                  'Weekly budget left: \$50/250',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+                SfLinearGauge(
+              barPointers: [LinearBarPointer(value: 80)]
+          )]),
+        ),
+
+        Expanded(
+          child: SfCircularChart(
+  tooltipBehavior: _tooltip,
+  series: <CircularSeries<dynamic, dynamic>>[
+    DoughnutSeries<_ChartData, String>(
+      dataSource: data,
+      xValueMapper: (_ChartData data, _) => data.x,
+      yValueMapper: (_ChartData data, _) => data.y,
+      name: 'Gold',
+      innerRadius: '80%',
+    ),
+  ],
+  annotations: <CircularChartAnnotation>[
+    CircularChartAnnotation(
+      widget: Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            '\$743.20 spent this month',
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          ),
+          Text(
+            '80% spent of budget',
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
           ),
         ],
       ),
-    );
-  }
-}
+    ),
+    ),
+  ],
+),
+        ),
+      ],
+    ),
+  );
+}}
