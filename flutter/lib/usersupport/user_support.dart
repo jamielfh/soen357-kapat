@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class UserSupportPage extends StatefulWidget {
   const UserSupportPage({super.key});
@@ -22,16 +21,77 @@ class _UserSupportPageState extends State<UserSupportPage> {
     // than having to individually change instances of widgets.
     return Scaffold(
         appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(
-                "Support",
+        title: const Text(
+                "Settings",
                 style: TextStyle(
                   fontSize: 24,
-                  fontFamily: GoogleFonts.openSans().fontFamily,
                   fontWeight: FontWeight.bold),
             ),
         ),
-      body: Text("User Support Page")
+      body: ListView(
+        children: [
+          _SettingsRow(
+            context,
+            Icon(Icons.person, size: 28, color: Colors.purple.shade200),
+            "Profile",
+            "Edit profile settings here"
+          ),
+          const Divider(),
+          _SettingsRow(
+            context,
+            Icon(Icons.chat_bubble, size: 28, color: Colors.purple.shade400),
+            "Contact Us",
+            "If you are facing issues with the app"
+          ),
+          const Divider(),
+          _SettingsRow(
+            context,
+            Icon(Icons.star, size: 28, color: Colors.purple.shade700),
+            "Feedback",
+            "Let us know what we can do better"
+          ),
+          const Divider(),
+          _SettingsRow(
+            context,
+            Icon(Icons.settings, size: 28, color: Colors.purple.shade900),
+            "Settings",
+            "Change app settings here"
+          ),
+        ],
+      )
     );
   }
+}
+
+Widget _SettingsRow(BuildContext context, Icon icon, String text, String description) {
+  return Container(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            icon,
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 15.0),
+                                    child: Text(
+                                        text,
+                                        style: const TextStyle(
+                                            fontSize: 18))),
+                                Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 15.0),
+                                    child: Text(
+                                        description,
+                                        style: TextStyle(
+                                            fontSize: 14, color: Colors.grey.shade600)))
+                            ]),
+                          ])
+                    ]));
 }
