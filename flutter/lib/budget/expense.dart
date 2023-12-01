@@ -25,6 +25,7 @@ class _ExpensePageState extends State<ExpensePage> {
         'Transportation',
         'Fees',
         ];
+    String inputValue = '';
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called
@@ -59,7 +60,12 @@ class _ExpensePageState extends State<ExpensePage> {
             labelText: 'Enter Expense',
             border: OutlineInputBorder(),
             ),
-            // Add your logic for handling the input value here
+            // change value of inputValue when user types
+            onChanged: (value) {
+              setState(() {
+                inputValue = value;
+              });
+            },
         ),
         ),
         Expanded(
@@ -89,6 +95,13 @@ class _ExpensePageState extends State<ExpensePage> {
             );
             }),
           ),
+        ),
+        ElevatedButton(
+          onPressed: () {
+            // navigate back to budget page
+            Navigator.pop(context, inputValue);
+          },
+          child: const Text('Add New Expense',style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
         ),
       ],
     ),

@@ -51,7 +51,12 @@ Widget build(BuildContext context) {
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => ExpensePage()),
-            );
+              ).then((value) {
+            if (value != null) {
+              // Use the input value returned from the ExpensePage
+              print('Input Value: $value');
+            }
+          });
           },
           child: const Text('Add New Expense',style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
         ),
