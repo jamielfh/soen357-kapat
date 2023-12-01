@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:soen357_project/usersupport/contact_us.dart';
 
 class UserSupportPage extends StatefulWidget {
   const UserSupportPage({super.key});
@@ -30,28 +31,37 @@ class _UserSupportPageState extends State<UserSupportPage> {
         ),
       body: ListView(
         children: [
-          _SettingsRow(
+          _settingsRow(
             context,
             Icon(Icons.person, size: 28, color: Colors.purple.shade200),
             "Profile",
             "Edit profile settings here"
           ),
           const Divider(),
-          _SettingsRow(
-            context,
-            Icon(Icons.chat_bubble, size: 28, color: Colors.purple.shade400),
-            "Contact Us",
-            "If you are facing issues with the app"
+          GestureDetector(
+            child: _settingsRow(
+              context,
+              Icon(Icons.chat_bubble, size: 28, color: Colors.purple.shade400),
+              "Contact Us",
+              "If you are facing issues with the app"
+            ),
+            onTap:() {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ContactUsPage())
+              );
+            },
           ),
           const Divider(),
-          _SettingsRow(
+          _settingsRow(
             context,
             Icon(Icons.star, size: 28, color: Colors.purple.shade700),
             "Feedback",
             "Let us know what we can do better"
           ),
           const Divider(),
-          _SettingsRow(
+          _settingsRow(
             context,
             Icon(Icons.settings, size: 28, color: Colors.purple.shade900),
             "Settings",
@@ -63,7 +73,7 @@ class _UserSupportPageState extends State<UserSupportPage> {
   }
 }
 
-Widget _SettingsRow(BuildContext context, Icon icon, String text, String description) {
+Widget _settingsRow(BuildContext context, Icon icon, String text, String description) {
   return Container(
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
