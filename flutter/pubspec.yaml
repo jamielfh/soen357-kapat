@@ -38,6 +38,7 @@ dependencies:
   google_fonts: ^6.1.0
   getwidget: ^3.1.1
   syncfusion_flutter_charts: ^23.2.6
+  syncfusion_flutter_gauges: ^23.2.6
 
 dev_dependencies:
   flutter_test:
