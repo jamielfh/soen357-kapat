@@ -1,6 +1,9 @@
 //expense page
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'dart:convert';
+import 'dart:io';
+import 'package:path_provider/path_provider.dart';
 
 class ExpensePage extends StatefulWidget {
   const ExpensePage({super.key});
@@ -14,6 +17,13 @@ class ExpensePage extends StatefulWidget {
 }
 
 class _ExpensePageState extends State<ExpensePage> {
+    Future<void> writeToFile(String value) async {
+      final directory = await getApplicationDocumentsDirectory();
+      final file = File('${directory.path}/expenses.json');
+
+      final jsonData = json.encode({'inputValue': value});
+      await file.writeAsString(jsonData);
+    }
     List<String> buttonLabels = [
         'Food',
         'Groceries',
@@ -100,6 +110,7 @@ class _ExpensePageState extends State<ExpensePage> {
           onPressed: () {
             // navigate back to budget page
             Navigator.pop(context, inputValue);
+            writeToFile(inputValue);
           },
           child: const Text('Add New Expense',style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
         ),
