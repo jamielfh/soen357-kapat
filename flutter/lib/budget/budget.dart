@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
+import 'package:soen357_project/budget/expense.dart';
 
 class BudgetPage extends StatefulWidget {
   const BudgetPage({super.key});
@@ -40,13 +41,17 @@ class _BudgetPageState extends State<BudgetPage> {
 Widget build(BuildContext context) {
   return Scaffold(
     appBar: AppBar(
-      title: const Text('Syncfusion Flutter chart'),
+      title: const Text('MY BUDGETING'),
     ),
     body: Column(
       children: [
         ElevatedButton(
           onPressed: () {
-            // Add your logic for the button's onPressed event here
+            // navigate to expense page
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ExpensePage()),
+            );
           },
           child: const Text('Add New Expense',style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
         ),
@@ -71,7 +76,7 @@ Widget build(BuildContext context) {
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
                 SfLinearGauge(
-              barPointers: [LinearBarPointer(value: 80)]
+              barPointers: [LinearBarPointer(value: 20)]
           )]),
         ),
 
